@@ -1,0 +1,19 @@
+{% if GITALK %}
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '{{ GITALK["clientID"] }}',
+    clientSecret: '{{ GITALK["clientSecret"] }}',
+    repo: '{{ GITALK["repo"] }}',
+    owner: '{{ GITALK["owner"] }}',
+    admin: {{ GITALK['admin'] }}
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+<noscript>
+    {{ _('Please enable JavaScript to view comments.') }}
+</noscript>
+{% endif %}
